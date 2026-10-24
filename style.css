@@ -51,6 +51,20 @@ main{max-width:1080px;margin:0 auto;padding:0 20px}
 .prose h2{font-size:24px;margin-top:1.4em}
 .site-footer{border-top:1px solid var(--line);margin-top:48px;padding:28px 20px 40px;text-align:center;font-size:13.5px;color:var(--mid)}
 .site-footer p{max-width:720px;margin:6px auto}
+.bf-feature{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;background:linear-gradient(135deg,#3B2A20 0%,#5A3E2E 100%);color:var(--sand);border-radius:24px;padding:44px 48px;margin:0 0 48px;position:relative;overflow:hidden}
+.bf-feature::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:rgba(227,164,122,.12)}
+.bf-eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;color:#E3A47A;margin:0 0 12px}
+.bf-feature h2{color:#fff;font-size:clamp(30px,4vw,42px);margin:0 0 12px}
+.bf-feature h2 em{font-style:italic;font-weight:400;color:#F3D2B8}
+.bf-sub{color:#E9DCCB;font-size:16px;margin:0 0 24px;max-width:440px}
+.btn-light{background:#F6EFE6;color:var(--brown)}
+.btn-light:hover{background:#fff;color:var(--accent-d)}
+.bf-list{list-style:none;margin:0;padding:22px 26px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;position:relative;z-index:1}
+.bf-list li{display:flex;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);font-family:Fraunces,Georgia,serif;font-size:18px;color:#fff}
+.bf-list li span{font-family:Inter,sans-serif;font-size:12px;color:#E3A47A;min-width:20px}
+.bf-list li.bf-more{border-bottom:0;padding-bottom:0}
+.bf-list li.bf-more a{font-family:Inter,sans-serif;font-size:14px;font-weight:600;color:#E3A47A;text-decoration:none}
+@media (max-width:760px){.bf-feature{grid-template-columns:1fr;padding:32px 24px}}
 .nav-bf{color:var(--accent-d)!important;font-weight:600!important}
 .bf-banner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--brown);color:var(--sand);text-decoration:none;border-radius:16px;padding:18px 22px;margin:0 0 40px}
 .bf-banner:hover{background:#2d2018}
