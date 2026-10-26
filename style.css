@@ -81,6 +81,17 @@ main{max-width:1080px;margin:0 auto;padding:0 20px}
 .photo-hero .note{color:#D9C7B4;margin:10px 0 0}
 .bf-hero{min-height:420px;align-items:center}
 @media (max-width:760px){.hero-split{grid-template-columns:1fr;gap:24px;text-align:center}.hero-split .lede{margin:0 auto 24px}.hero-photo{min-height:260px;order:-1}.photo-hero{padding:28px 22px;min-height:320px}}
+.guide-intro{max-width:760px;margin:8px auto 0;font-size:17px;color:#4a372b}
+.guide-intro p{margin:0 0 14px}
+.bestfor{font-size:14px;color:var(--mid)}
+.bestfor strong{color:var(--brown)}
+.howpick,.faq{max-width:760px;margin:36px auto 0}
+.howpick h2,.faq h2{font-size:26px}
+.howpick p{color:var(--mid)}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:0 0 10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:16px}
+.faq details p{margin:10px 0 0;color:#4a372b}
+.by-person{padding-top:48px}
 .nav-bf{color:var(--accent-d)!important;font-weight:600!important}
 .bf-banner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--brown);color:var(--sand);text-decoration:none;border-radius:16px;padding:18px 22px;margin:0 0 40px}
 .bf-banner:hover{background:#2d2018}
