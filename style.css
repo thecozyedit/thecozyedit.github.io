@@ -176,6 +176,7 @@ body.ed main{max-width:560px}
 .ed-list .row{display:flex;gap:12px;align-items:center;padding:13px 0;border-top:1px solid #4a3c33;text-decoration:none;color:#f4ece2}
 .ed-list .row img{width:64px;height:64px;border-radius:10px;object-fit:cover;flex:none;background:#3a2e27}
 .ed-list .rt{min-width:0}
+.ed-list .ph0{width:64px;height:64px;border-radius:10px;flex:none;background:#3a2e27;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',Georgia,serif;font-size:24px;color:#d9a57a}
 .ed-list .row b{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:17px;display:block}
 .ed-list .row small{color:#bfae9e;font-size:13px;line-height:1.4;display:block}
 .ed-list .row i{margin-left:auto;font-style:normal;color:#d9a57a;white-space:nowrap;padding-left:8px}
