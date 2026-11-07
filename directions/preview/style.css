@@ -41,7 +41,8 @@ h2.t{font-size:44px;margin:0 0 6px;text-align:center;line-height:1.1}
 .who img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:brightness(.72) saturate(.9);transition:filter .4s,transform 1s}
 .who.three img{aspect-ratio:4/3}
 .who a:hover img{filter:brightness(.92);transform:scale(1.04)}
-.who span{position:absolute;left:8px;right:8px;bottom:14px;text-align:center;font-family:'Bodoni Moda',serif;font-style:italic;font-size:23px;line-height:1.15}
+.who a:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,19,16,0) 50%,rgba(26,19,16,.85) 100%)}
+.who span{z-index:2;position:absolute;left:8px;right:8px;bottom:14px;text-align:center;font-family:'Bodoni Moda',serif;font-style:italic;font-size:23px;line-height:1.15}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:44px 22px}
 .card{display:block;text-align:center;min-width:0}
 .card .ph{overflow:hidden;border-radius:140px 140px 6px 6px;background:var(--roast);aspect-ratio:4/5}
