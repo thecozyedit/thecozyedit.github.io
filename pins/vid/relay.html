@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>relay</title>
+<script>
+// Hands a video pin file to the Pinterest tab that opened this page (used by The Cozy Edit's pin posting).
+const id = new URLSearchParams(location.search).get('v');
+if (/^V\d{3}$/.test(id || '') && window.opener) {
+  fetch(id + '.mp4').then(r => r.arrayBuffer()).then(buf => {
+    window.opener.postMessage({cozyVideo: id, buf}, 'https://www.pinterest.com', [buf]);
+    setTimeout(() => window.close(), 500);
+  });
+}
+</script>
