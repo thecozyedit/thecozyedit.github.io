@@ -109,3 +109,6 @@ h2.t{font-size:44px;margin:0 0 6px;text-align:center;line-height:1.1}
 .guides-list{columns:1}.gg-grid{grid-template-columns:1fr 1fr;gap:26px 12px}.gcard{padding:8px;border-radius:12px}.gbody{padding:12px 4px 2px}.gcard h4{font-size:17px}.gmeta{font-size:13px;margin-bottom:10px}.gfoot{flex-direction:column;align-items:flex-start;gap:8px;padding-top:10px}.thumb{width:30px;height:30px}.gcard .pill{font-size:12px;padding:7px 12px}.gg-h{font-size:21px;margin-top:40px}
 .about{grid-template-columns:1fr;padding:24px 20px 0;gap:28px}.about .ph{border-radius:200px 200px 6px 6px}
 .prose{padding:60px 20px 0}.foot-note{padding:70px 20px 0}.site-footer{padding:26px 20px 40px}.site-footer a{display:inline-block;margin:4px 8px}}
+
+[hidden]{display:none!important}.bfh{font-family:'Bodoni Moda',serif;font-weight:400;font-size:28px;color:var(--glow);margin:46px 0 18px;padding-bottom:10px;border-bottom:1px solid var(--line)}.bfnow .bfh:first-of-type{margin-top:8px}
+@media(max-width:700px){.bfh{font-size:23px;margin:34px 0 14px}}
