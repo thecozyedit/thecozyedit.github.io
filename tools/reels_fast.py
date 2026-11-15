@@ -13,7 +13,7 @@ SPECS = [("F001", "Kitchen", "4 kitchen things worth buying this Black Friday"),
 
 
 def photo(url):
-    return re.sub(r"w=\d+&h=\d+", "w=1080&h=1920", url).replace("q=72", "q=80")
+    return re.sub(r"w=\d+&h=\d+", "w=1080&h=1920", url).replace("q=72", "q=80").replace("fit=crop", "fit=crop&crop=entropy")
 
 
 def page(hook, items):
@@ -30,22 +30,24 @@ def page(hook, items):
 #name span{background:#FFD84D;color:#111;font-size:76px;padding:6px 22px;line-height:1.35;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 #brand{position:absolute;bottom:150px;left:0;right:0;text-align:center;color:#fff;font:italic 46px 'Bodoni Moda',serif;text-shadow:0 2px 12px #000}
 #end{position:absolute;inset:0;background:#111;display:none;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;gap:50px}
-#end b{font-size:110px;line-height:1.05}#end i{background:#FFD84D;color:#111;font-style:normal;font-size:70px;padding:10px 30px}
+#end b{font-size:110px;line-height:1.05}#end i{background:#FFD84D;color:#111;font-style:normal;font-size:62px;padding:10px 30px}
 </style></head><body><img id="bg"><div id="shade"></div><div id="num"></div><div id="cap"></div><div id="name"></div><div id="brand">The Cozy Edit</div>
-<div id="end"><b>Full Black<br>Friday list</b><i>Link in bio</i></div>
+<div id="flash" style="position:absolute;inset:0;background:#fff;opacity:0"></div>
+<div id="end"><b>Full Black<br>Friday list</b><i>thecozyedit.github.io</i></div>
 <script>
 const D=""" + data + """,HOOK=""" + json.dumps(hook) + """;
 D.forEach(d=>{const i=new Image();i.src=d.img});
 const HOOKT=1.0,PER=1.1,ENDT=1.4;window.TOTAL=HOOKT+D.length*PER+ENDT;
-function show(t){const bg=document.getElementById('bg'),cap=document.getElementById('cap'),num=document.getElementById('num'),nm=document.getElementById('name'),end=document.getElementById('end');
+function show(t){document.getElementById('flash').style.opacity=0;const bg=document.getElementById('bg'),cap=document.getElementById('cap'),num=document.getElementById('num'),nm=document.getElementById('name'),end=document.getElementById('end');
  end.style.display='none';
  if(t<HOOKT){bg.src=D[0].img;const k=Math.min(t/0.12,1);cap.style.transform=`scale(${1.35-0.35*k})`;cap.innerHTML='<span>'+HOOK+'</span>';num.textContent='';nm.innerHTML='';bg.style.transform=`scale(${1.25-0.1*t})`;bg.style.filter='brightness(.6)';return}
  const u=t-HOOKT,i=Math.floor(u/PER);
  if(i>=D.length){end.style.display='flex';const k=Math.min((u-D.length*PER)/0.12,1);end.firstChild.style.transform=`scale(${1.3-0.3*k})`;return}
  const s=u-i*PER,half=s>=PER/2,k=Math.min((half?s-PER/2:s)/0.15,1);
  bg.src=D[i].img;bg.style.filter='none';
- bg.style.transformOrigin=half?'30% 40%':'50% 50%';
- bg.style.transform=half?`scale(${1.6-0.15*k})`:`scale(${1.25-0.2*k+0.03*s})`;
+ bg.style.transformOrigin=half?'40% 45%':'50% 50%';
+ bg.style.transform=half?`scale(${2.0-0.25*k})`:`scale(${1.3-0.25*k+0.03*s})`;
+ const ss=half?s-PER/2:s;document.getElementById('flash').style.opacity=(i>0||half)&&ss<0.07?0.55:0;
  cap.innerHTML='';num.textContent=(i+1)+'/'+D.length;num.style.transform=`scale(${1.4-0.4*Math.min(s/0.12,1)})`;
  nm.innerHTML='<span>'+D[i].name+'</span>';}
 </script></body></html>"""
@@ -73,8 +75,9 @@ if __name__ == "__main__":
     want = sys.argv[1:] or [s[0] for s in SPECS]
     groups = dict(GROUPS)
     with sync_playwright() as pw:
-        b = pw.chromium.launch(); pg = b.new_page(viewport={"width": W, "height": H})
+        b = pw.chromium.launch()
         for vid, g, hook in SPECS:
             if vid in want:
-                render(pg, vid, page(hook, groups[g])); print(vid)
+                pg = b.new_page(viewport={"width": W, "height": H})
+                render(pg, vid, page(hook, groups[g])); pg.close(); print(vid)
         b.close()
